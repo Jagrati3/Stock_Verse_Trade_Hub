@@ -160,59 +160,6 @@ STOCK_VERSE_TRADE_HUB/
 
 ---
 
-# ⚙️ Installation & Setup
-
-## 1️⃣ Clone Repository
-
-```bash
-git clone https://github.com/Jagrati3/Stock_Verse_Trade_Hub.git
-```
-
----
-
-## 2️⃣ Setup Backend
-
-```bash
-cd backend
-npm install
-npm start
-```
-
----
-
-## 3️⃣ Setup Frontend
-
-```bash
-cd frontend
-npm install
-npm start
-```
-
----
-
-## 4️⃣ Setup Dashboard
-
-```bash
-cd dashboard
-npm install
-npm start
-```
-
----
-
-# 🔑 Environment Variables
-
-Create `.env` file inside backend folder.
-
-Example:
-
-```env
-PORT=5000
-MONGO_URL=your_mongodb_connection
-JWT_SECRET=your_secret_key
-```
-
----
 
 # 🖥️ Screenshots
 
@@ -265,7 +212,7 @@ Through this project I learned:
 
 # 👩‍💻 Author
 
-## Jagrati Khorwal
+## Jagrati 
 
 B.Tech CSE Student  
 Aspiring Full Stack MERN Developer  
