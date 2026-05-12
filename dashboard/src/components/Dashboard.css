@@ -1,0 +1,683 @@
+/* Global reset */
+/* body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #a5bbf1;
+  color: #222;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Gradient background */
+  background: linear-gradient(135deg, #a5bbf1, #4061b3);
+
+  /* color: #fbff01; */
+  
+  /* Make text bigger and clearer */
+  font-size: 25px;
+  line-height: 2.5;
+  
+
+}
+
+
+/* Dashboard container */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar (WatchList area) */
+.dashboard-container > div:first-child {
+  width: 260px;
+  background: linear-gradient(180deg, rgb(201, 190, 255), rgb(132, 148, 255));
+  color: #111;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+.dashboard-container > div:first-child h3 {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: rgb(99, 103, 255);
+}
+
+.dashboard-container > div:first-child ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dashboard-container > div:first-child li {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.dashboard-container > div:first-child li:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateX(5px);
+}
+
+/* Chart area */
+.chart-container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(99, 103, 255, 0.2);
+}
+
+.chart-container canvas {
+  background: linear-gradient(135deg, rgb(255, 219, 253), rgb(201, 190, 255));
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* Content area (right side) */
+.content {
+  flex: 1;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px 0 0 12px;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+}
+
+/* Titles */
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: rgb(99, 103, 255);
+  font-weight: 700;
+}
+
+/* Profit/Loss colors */
+.profit {
+  color: #16a34a; /* brighter green */
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.loss {
+  color: #dc2626; /* brighter red */
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 5px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-blue {
+  background: rgb(99, 103, 255);
+  color: #fff;
+}
+
+.btn-grey {
+  background: rgb(132, 148, 255);
+  color: #fff;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 103, 255, 0.3);
+}
+/* ........................................................... */
+/* ........................................................... */
+/* ........................................................... */
+/* ........................................................... */
+/* ........................................................... */
+/* ........................................................... */
+/* Holdings section */
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: rgb(99, 103, 255);
+  font-weight: 700;
+}
+
+/* Table styling */
+.order-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(99, 103, 255, 0.15);
+}
+
+.order-table th, .order-table td {
+  padding: 14px 18px;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 1rem;
+}
+
+.order-table th {
+  background: rgb(132, 148, 255);
+  color: #fff;
+  font-weight: 600;
+}
+
+.order-table tr:nth-child(even) {
+  background: rgba(201, 190, 255, 0.25);
+}
+
+.order-table tr:hover {
+  background: rgba(255, 219, 253, 0.4);
+}
+
+/* Profit/Loss colors */
+.profit {
+  color: #16a34a; /* bright green */
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.loss {
+  color: #dc2626; /* bright red */
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Summary row (investment, current value, P&L) */
+.row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  padding: 20px;
+  background: linear-gradient(90deg, rgb(201, 190, 255), rgb(255, 219, 253));
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(132, 148, 255, 0.2);
+}
+
+.col {
+  text-align: center;
+}
+
+.col h5 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: rgb(99, 103, 255);
+  margin: 0;
+}
+
+.col h5 span {
+  font-size: 1.2rem;
+}
+
+.col p {
+  margin: 5px 0 0;
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Vertical graph container */
+.chart-container {
+  margin-top: 30px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(99, 103, 255, 0.2);
+}
+
+.chart-container canvas {
+  background: linear-gradient(135deg, rgb(255, 219, 253), rgb(201, 190, 255));
+  border-radius: 10px;
+  padding: 10px;
+}
+/* ............................................................... */
+/* ............................................................... */
+/* ............................................................... */
+/* ............................................................... */
+/* ............................................................... */
+/* ............................................................... */
+/* ...............................................................
+*/
+/* navbar  */
+/* TopBar container */
+.topbar-container {
+  background: linear-gradient(90deg, #082670, #1a56d6);
+  padding: 16px 30px; /* increased padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* vertically center everything */
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Indices section */
+.indices-container {
+  display: flex;
+  gap: 50px; /* more spacing between NIFTY and SENSEX */
+  align-items: center; /* vertically align text */
+}
+
+.indices-container .nifty,
+.indices-container .sensex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* center text vertically */
+  line-height: 1.6; /* add breathing space between lines */
+}
+
+/* Index name */
+.index {
+  font-size: 1.3rem; /* slightly bigger */
+  font-weight: 700;
+  margin: 0;
+  color: #ffdfdf;
+}
+
+/* Index points */
+.index-points {
+  font-size: 1.5rem; /* bigger for visibility */
+  font-weight: 700;
+  margin: 4px 0;
+  color: #fff;
+}
+
+/* Percent change */
+.percent {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 2px 0;
+}
+
+/* Profit/Loss colors */
+.percent.profit {
+  color: #16a34a;
+}
+
+.percent.loss {
+  color: #dc2626;
+}
+
+/* Menu section (right side) */
+.topbar-container .menu {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ............................................................... */
+/* ............................................................... */
+/* ............................................................... */
+/* ............................................................... */
+/* ............................................................... */
+/* ............................................................... */
+/* ...............................................................
+*/
+/* Username greeting */
+/* main dashboard page  */
+.username {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.username h6 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #082670;
+  margin: 0;
+}
+
+.divider {
+  border: none;
+  border-top: 2px solid #d1d5db;
+  margin: 10px 0;
+}
+
+/* Section blocks */
+
+.section {
+  margin-bottom: 25px;
+}
+
+.section span p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a56d6;
+  margin-bottom: 10px;
+}
+
+/* Data container */
+.data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #a5bbf1, #dbeafe);
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.data .first {
+  flex: 1;
+  text-align: center;
+}
+
+.data .first h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+  color: #082670;
+}
+
+.data .first h3.profit {
+  color: #16a34a; /* bright green */
+}
+
+.data .first h3.loss {
+  color: #dc2626; /* bright red */
+}
+
+.data .first small {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.data .first p {
+  margin: 5px 0 0;
+  font-size: 1rem;
+  color: #444;
+}
+
+.data .second {
+  flex: 1;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.data .second p {
+  margin: 5px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.data .second span {
+  font-weight: 700;
+  color: #082670;
+}
+/* ............................................................... */
+/* ............................................................... */
+/* ............................................................... */
+/* ............................................................... */
+/* ............................................................... */
+/* ............................................................... */
+/* ...............................................................
+*/
+/* MAIN PAGE BACKGROUND */
+/* Funds main container */
+.funds {
+  background: linear-gradient(135deg, #dbeafe, #a5bbf1);
+  padding: 20px 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.funds p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #082670;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 8px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-green {
+  background: #16a34a;
+  color: #fff;
+}
+
+.btn-blue {
+  background: #1a56d6;
+  color: #fff;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Row layout */
+.row {
+  display: flex;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.col {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* Equity section */
+.col span p {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a56d6;
+  margin-bottom: 15px;
+}
+
+/* Table styling */
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.data {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000000;
+}
+
+.data .imp {
+  font-weight: 700;
+  color: #082670;
+}
+
+.data .colored {
+  color: #16a34a; /* highlight available margin */
+}
+
+.table hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 10px 0;
+}
+
+/* Commodity section */
+.commodity {
+  text-align: center;
+  padding: 25px;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.commodity p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #92400e;
+}
+/* .......................................................... */
+/* .......................................................... */
+/* .......................................................... */
+/* .......................................................... */
+/* .......................................................... */
+/* .......................................................... */
+.apps-container {
+  padding: 30px;
+}
+
+.apps-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #082670;
+  margin-bottom: 10px;
+}
+
+.apps-subtitle {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.app-card {
+  background: linear-gradient(135deg, #dbeafe, #a5bbf1);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.app-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #082670;
+}
+
+.app-card p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-blue {
+  background: #1a56d6;
+  color: #fff;
+}
+
+.btn-green {
+  background: #16a34a;
+  color: #fff;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+/* .................................................... */
+/* .................................................... */
+/* .................................................... */
+/* .................................................... */
+/* .................................................... */
+/* .................................................... */
+
+/* showing the coins using coin geko api  */
+.coins-container {
+  padding: 20px;
+  background: linear-gradient(135deg, #dbeafe, #a5bbf1);
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  margin: 20px 0;
+}
+
+.coins-container h2 {
+  margin-bottom: 15px;
+  color: #082670;
+}
+
+.coins-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.coins-table th, .coins-table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.coins-table th {
+  background: #082670;
+  color: #fff;
+}
+
+.coins-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.coin-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.positive {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.negative {
+  color: #dc2626;
+  font-weight: 600;
+}
+/* ..................................................................... */
+/* ..................................................................... */
+/* ..................................................................... */
+/* ..................................................................... */
+/* ..................................................................... */
+/* ..................................................................... */
