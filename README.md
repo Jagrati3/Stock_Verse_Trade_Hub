@@ -7,7 +7,7 @@ A full-stack MERN based stock trading and portfolio management platform that all
 ## 🌐 Live Demo:
 
 🚀 Frontend Live:  
-[https://your-vercel-link.vercel.app](https://your-vercel-link.vercel.app)
+[LIVE WEBSITE](https://stock-verse-trade-hub.vercel.app/)
 
 
 # 🚀 Project Overview
