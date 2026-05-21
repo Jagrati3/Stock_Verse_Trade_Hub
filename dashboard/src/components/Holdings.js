@@ -11,7 +11,9 @@ const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3002/allHoldings").then((res) => {
+    // axios.get("http://localhost:3002/allHoldings")
+    axios.get("https://stock-verse-trade-hub.onrender.com/allHoldings")
+    .then((res) => {
       // console.log(res.data);
       setAllHoldings(res.data);
     });

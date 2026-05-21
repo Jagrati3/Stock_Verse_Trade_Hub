@@ -24,7 +24,8 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3002/allOrders")
+    // axios.get("http://localhost:3002/allOrders")
+    axios.get("https://stock-verse-trade-hub.onrender.com/allOrders")
       .then(res => setOrders(res.data))
       .catch(err => console.error(err));
   }, []);
