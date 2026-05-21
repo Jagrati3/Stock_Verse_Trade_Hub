@@ -4,6 +4,12 @@ A full-stack MERN based stock trading and portfolio management platform that all
 
 ---
 
+## 🌐 Live Demo:
+
+🚀 Frontend Live:  
+[https://your-vercel-link.vercel.app](https://your-vercel-link.vercel.app)
+
+
 # 🚀 Project Overview
 
 STOCK VERCE TRADE HUB is a modern stock market web application developed as an 8th semester major project using the MERN Stack.
